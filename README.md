@@ -4,16 +4,18 @@ This is my first Javascript project with Udacity.
 
 - [Project Title](#landing-page-project)
 - [Table of contents](#table-of-contents)
-- [Project in my words](#project-in-my-words)
+- [Project Description](#project-description)
 - [Installation](#installation)
 - [Work Done](#work-done)
     - [HTML and CSS Files](#html-and-css-files)
     - [JS File](#js-file)
 - [License](#license)
+- [Used Technologies](#used-technologies)
+- [Developer](#developer)
 - [Footer](#footer)
 
 
-# Project in my words
+# Project Description
 
 This is my first Javascript project with Udacity. Actually, I've learned many new programming skills.
 
@@ -49,12 +51,25 @@ I've added many features to the app.js file as follow:
 5. Back to home Button.
 6. Min. section number is limited to 4 sections.
 7. We can add as many sections as we like.
+8. Scrolling to the target section smoothly.
 
 [(Back to home)](#table-of-contents)
 
 # License
 
 This is a free application
+
+[(Back to home)](#table-of-contents)
+
+# Used Technologies
+
+This project had been developed using HTML, CSS and Javascript.
+
+[(Back to home)](#table-of-contents)
+
+# Developer
+
+Project had been developed By: Ashraf Kamel.
 
 [(Back to home)](#table-of-contents)
 

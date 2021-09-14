@@ -47,6 +47,14 @@ function sectionIsInViewport(section) {
         rect.right <= (window.innerWidth || document.documentElement.clientWidth)
     );
 }
+/////////////////////////////Back To Home////////////////////////////////
+function goBackToHome(){
+    let positionRatio = ((window.innerHeight + window.scrollY)/document.body.offsetHeight)*100;
+    positionRatio > 30 ? document.querySelector('.homeback').setAttribute('style', 'display: block;')
+                       : document.querySelector('.homeback').setAttribute('style', 'display: none;');
+    resetSelection();//Adjust new active Section.
+}
+
 /**
  * End Helper Functions
  * Begin Main Functions
@@ -126,9 +134,8 @@ function removeSection(){
 ///////////////////////////Go to Selected Section//////////////////
 function goToSection(event){
     const navBarItemId = event.target.id;
-    const sectionId = navBarItemId.substring(4)
+    const sectionId = navBarItemId.substring(4) //Omitting the word 'item' from navbar id.
     const targetSection = document.getElementById(sectionId);
-    console.log(sectionId);
     targetSection.scrollIntoView({behavior: "smooth", block: "start", inline: "nearest"});
 }
 // Scroll to anchor ID using scrollTO event
@@ -153,12 +160,7 @@ function removeLastSection(){
 }
 ////////Show scroll home button upon document scroll action///////
 function showHomeButton() {
-    document.addEventListener('scroll', ()=>{
-        let positionRatio = ((window.innerHeight + window.scrollY)/document.body.offsetHeight)*100;
-        positionRatio > 30 ? document.querySelector('.homeback').setAttribute('style', 'display: block;')
-                           : document.querySelector('.homeback').setAttribute('style', 'display: none;');
-        resetSelection();//Adjust new active Section.
-    });
+    document.addEventListener('scroll', goBackToHome);
 }
 /////////////////////////////Scroll to sections smoothly//////////
 function scrollToSection(){
