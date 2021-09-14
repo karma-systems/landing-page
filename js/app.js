@@ -32,6 +32,9 @@ function backToHome(){
         window.scrollTo({
             top:0,
         });
+    resetSelection(); //Adjust new active Section.
+    clearNavigationBar(); //Reset navigation bar.
+    buildNavBar(); //Build new navigation bar with sutable section number.
     });
  }
 ////////////////Check if section in viewport//////////
@@ -77,7 +80,7 @@ function buildNavBar(){
     for(section of pageSections){
         liLable = section.getAttribute('data-nav');
         liId = section.getAttribute('id');
-        navItem = `<li  ><a id="item${liId}" class = "menu__link" href = "#${liId}"> ${liLable} </li>`;
+        navItem = `<li  ><a id="item${liId}" class = "menu__link" > ${liLable} </li>`;
         navigationBar.insertAdjacentHTML('beforeend', navItem);
     }
     document.querySelector('#itemSection1').classList.add('active_menu_link'); //Select First Item
@@ -120,6 +123,14 @@ function removeSection(){
     buildNavBar();//Build new navigation bar with sutable section number.
     }
 }
+///////////////////////////Go to Selected Section//////////////////
+function goToSection(event){
+    const navBarItemId = event.target.id;
+    const sectionId = navBarItemId.substring(4)
+    const targetSection = document.getElementById(sectionId);
+    console.log(sectionId);
+    targetSection.scrollIntoView({behavior: "smooth", block: "start", inline: "nearest"});
+}
 // Scroll to anchor ID using scrollTO event
 /**
  * End Main Functions
@@ -149,12 +160,20 @@ function showHomeButton() {
         resetSelection();//Adjust new active Section.
     });
 }
+/////////////////////////////Scroll to sections smoothly//////////
+function scrollToSection(){
+    const navBar = document.getElementById('navbar__list');
+    navBar.addEventListener('click', goToSection); 
+}
+//////////////////////////////////////////////////////////////////
+
 // Build menu 
 buildNavBar();
 showHomeButton();
 appendNewSection();
 removeLastSection();
 backToHome();
+scrollToSection();
 // Scroll to section on link click
 
 // Set sections as active

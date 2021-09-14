@@ -10,11 +10,6 @@
 
 
 /* ---- Base Rules ---- */
-/**********Smooth Scroll all over the page******/
-html {
-    scroll-behavior: smooth;
-}
-/************************************************/
 body {
     background: rgb(136,203,171);
     background: linear-gradient(0deg, rgba(136,203,171,1) 0%, rgba(0,13,60,1) 100%);
@@ -94,6 +89,7 @@ section {
     background: #333;
     color: cyan;
     transition: ease 0.3s all;
+    cursor: pointer;
 }
 .active_menu_link {
     background: red;
@@ -255,7 +251,7 @@ section.your-active-class .landing__container::after {
     background-position: center;
     background-size: cover;
     opacity: 0.6;
-    
+    cursor: pointer;
   }
 .homeback:hover{
 opacity: 1;
@@ -268,4 +264,5 @@ transition-delay: 100ms;
     font-size: 1.7em;
     font-weight: bold;
     margin: 0.5em 1rem;
+    cursor: pointer;
 }
